@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<GridPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+          hgap="10" vgap="15" alignment="TOP_CENTER" fx:controller="com.databaseHelper.controller.MysqlConfigController">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <!-- 主机地址 -->
+    <Label text="主机地址:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+    <TextField fx:id="hostField" text="localhost" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+    <!-- 端口号 -->
+    <Label text="端口号:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+    <TextField fx:id="portField" text="3306" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+    <!-- 数据库名称 -->
+    <Label text="数据库名:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+    <TextField fx:id="dbNameField" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+    <!-- 用户名 -->
+    <Label text="用户名:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+    <TextField fx:id="usernameField" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+    <!-- 密码 -->
+    <Label text="密码:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+    <PasswordField fx:id="passwordField" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+
+    <!-- MySQL特定参数 -->
+    <Label text="MySQL参数:" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+    <TextField fx:id="extraParamsField" text="useSSL=false&amp;serverTimezone=UTC"
+               promptText="额外的连接参数" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+
+    <!-- 连接按钮区域 -->
+    <HBox spacing="10" alignment="CENTER_RIGHT"
+          GridPane.rowIndex="6" GridPane.columnIndex="0" GridPane.columnSpan="2">
+        <Button text="测试连接" onAction="#testConnectionFxml" style="-fx-font-weight: bold;"/>
+        <Button text="保存配置" onAction="#saveConfigFxml"/>
+        <Button text="连接" onAction="#connectFxml" style="-fx-base: #4CAF50; -fx-text-fill: white;"/>
+    </HBox>
+
+    <!-- 连接状态 -->
+    <Label fx:id="statusLabel" style="-fx-text-fill: red;"
+           GridPane.rowIndex="7" GridPane.columnIndex="0" GridPane.columnSpan="2"/>
+</GridPane>

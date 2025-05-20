@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.databaseHelper.controller.MainController" spacing="10">
+
+<!--    <MenuBar>-->
+<!--        <Menu text="文件">-->
+<!--            <MenuItem text="退出" onAction="#handleExit"/>-->
+<!--        </Menu>-->
+<!--        <Menu text="帮助">-->
+<!--            <MenuItem text="关于"/>-->
+<!--        </Menu>-->
+<!--    </MenuBar>-->
+
+    <TabPane>
+        <Tab text="数据库连接">
+            <BorderPane>
+                <top>
+                    <HBox spacing="10" alignment="CENTER_LEFT" style="-fx-padding: 10;">
+                        <Label text="选择数据库类型:"/>
+                        <ComboBox fx:id="dbTypeComboBox" prefWidth="150"/>
+                    </HBox>
+                </top>
+                <center>
+                    <!-- 动态加载的数据库配置面板 -->
+                    <StackPane fx:id="configContainer">
+                        <!-- 这里将动态加载不同的数据库配置面板 -->
+                    </StackPane>
+                </center>
+            </BorderPane>
+        </Tab>
+        <Tab text="查询结果">
+            <BorderPane>
+                <center>
+                    <TableView fx:id="resultTable"/>
+                </center>
+                <bottom>
+                    <Label fx:id="statusLabel" text="就绪" style="-fx-font-size: 12px;"/>
+                </bottom>
+            </BorderPane>
+        </Tab>
+    </TabPane>
+</VBox>
